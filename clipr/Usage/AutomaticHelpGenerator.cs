@@ -84,7 +84,7 @@ namespace clipr.Usage
         /// Get the usage as a string.
         /// </summary>
         /// <returns></returns>
-        public string GetUsage()
+        public virtual string GetUsage()
         {
             var assembly = Assembly.GetEntryAssembly();
             var builder = new StringBuilder();
@@ -188,7 +188,7 @@ namespace clipr.Usage
         /// </summary>
         /// <param name="config"></param>
         /// <returns></returns>
-        public string GetHelp(IParserConfig<T> config)
+        public virtual string GetHelp(IParserConfig<T> config)
         {
             var positionalArgs = typeof (T).GetProperties()
                 .Where(p => p.GetCustomAttribute<PositionalArgumentAttribute>() != null)
